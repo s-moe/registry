@@ -88,6 +88,7 @@ export default function SignUp() {
 			<form
 				style={{ display: 'flex', flexDirection: 'column' }}
 				onSubmit={handleSignUp}
+				className="signup-form"
 			>
 				<label>
 					First Name:
@@ -178,7 +179,6 @@ export default function SignUp() {
 					''
 				)}
 			</div>
-			)} )}
-		</div> //login page div end
+		</div>
 	);
 }

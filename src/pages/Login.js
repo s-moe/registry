@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import CreateListing from '../components/CreateListing';
 import Listings from '../components/Listings';
 import Delete from '../components/Delete';
@@ -36,6 +36,13 @@ export default function Login() {
 			}
 		})();
 	}, [listings]);
+
+	useEffect(() => {
+		if (window.localStorage.getItem('token')) {
+			setToken(window.localStorage.getItem('token'));
+			setLoggedInUser(window.localStorage.getItem('loggedInUser'));
+		}
+	}, []);
 
 	const handleSignUp = async e => {
 		e.preventDefault();
@@ -78,16 +85,13 @@ export default function Login() {
 		}
 	};
 
-	useEffect(() => {
-		if (window.localStorage.getItem('token')) {
-			setToken(window.localStorage.getItem('token'));
-			setLoggedInUser(window.localStorage.getItem('loggedInUser'));
-		}
-	}, []);
+	const handleChange = e => {
+		setUser({ ...user, [e.target.id]: e.target.value });
+	};
 
 	return (
 		<div className="LoginPage">
-			<form onSubmit={handleLogin}>
+			<form onSubmit={handleLogin} className="login-form">
 				<input
 					type="text"
 					id="username"
@@ -102,7 +106,6 @@ export default function Login() {
 				/>
 				<input type="submit" value="Login" />
 			</form>
-			//a button to have them register instead
 			<button
 				className="btn btn-primary"
 				type="button"
@@ -170,7 +173,6 @@ export default function Login() {
 						Register
 					</button>
 				</form>
-				)}
 			</div>
 			<div>
 				{token ? (
@@ -182,7 +184,6 @@ export default function Login() {
 					''
 				)}
 			</div>
-			)} )}
-		</div> //login page div end
+		</div>
 	);
 }

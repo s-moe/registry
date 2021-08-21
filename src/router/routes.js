@@ -11,11 +11,7 @@ const routes = [
 		key: 'Contact',
 		path: '/contact'
 	},
-	{
-		Component: Home,
-		key: 'Home',
-		path: '/'
-	},
+
 	{
 		Component: SignUp,
 		key: 'SignUp',
@@ -30,6 +26,11 @@ const routes = [
 		Component: About,
 		key: 'About',
 		path: '/about'
+	},
+	{
+		Component: Home,
+		key: 'Home',
+		path: '/'
 	}
 ];
 

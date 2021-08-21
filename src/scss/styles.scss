@@ -17,11 +17,17 @@ body {
 }
 
 .HomePage {
-
+  div{
+    margin-top: 50px;
+  }
 }
 
 .AboutPage {
 
+  .title{
+    margin-top: 100px;
+    color: black;
+  }
 }
 
 .ContactPage{
@@ -30,4 +36,15 @@ body {
 
 .AppPage {
 
+}
+.SignUpPage{
+  .signup-form{
+    margin-top: 50px;
+  }
+}
+
+.LoginPage{
+  .login-form{
+    margin-top: 50px;
+  }
 }

@@ -10,13 +10,9 @@ export default function Contact() {
 
 	const handleSubmit = async e => {
 		e.preventDefault();
-		try {
-			const response = await fetch('/api/?????', {
-				//////////////HELP
-			});
-		} catch (error) {
-			console.error(error);
-		}
+		return {
+			/*Just a note saying thanks, their comment has been submimtted and the form disappears*/
+		};
 	};
 
 	const handleChange = e => {
@@ -25,7 +21,7 @@ export default function Contact() {
 
 	return (
 		<div className="ContactPage">
-			<form>
+			<form onSubmit={handleSubmit}>
 				<label>Name: </label>
 				<input
 					type="text"

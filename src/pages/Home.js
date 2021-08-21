@@ -8,8 +8,6 @@ import Login from './Login';
 export default function Home() {
 	return (
 		<div className="HomePage container">
-			<NavBar />
-
 			<div>
 				<Link to="/signup" className="btn btn-primary">
 					Sign Up
@@ -19,8 +17,6 @@ export default function Home() {
 					Login
 				</Link>
 			</div>
-
-			<Footer />
 		</div>
 	);
 }
