@@ -6,13 +6,17 @@ import { Link } from 'react-router-dom';
 
 const NavBar = props => {
 	return (
-		<nav className="NavBar fixed-top">
+		<nav className="NavBar fixed-top nav-bar-toggler">
 			<Link key="SignUp" to="/signup" className="nav-link nav-item">
-				Sign Up
+				Register
 			</Link>{' '}
 			<Link key="Login" to="/login" className="nav-link nav-item">
 				Login
 			</Link>
+			<Link key="Home" to="/" className="nav-link nav-item">
+				Home
+			</Link>
+			<Link className="nav-link nav-item">Search for a Registry</Link>
 		</nav>
 	);
 };

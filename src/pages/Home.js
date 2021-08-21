@@ -13,8 +13,11 @@ export default function Home() {
 					Sign Up
 				</Link>
 
-				<Link to="/login" className="btn btn-primary">
-					Login
+				<Link to="/find" className="btn btn-primary">
+					Find a Registry
+				</Link>
+				<Link to="/login" className="">
+					Already have an account? Login.
 				</Link>
 			</div>
 		</div>

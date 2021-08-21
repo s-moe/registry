@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 export default function Footer() {
 	return (
-		<div className="fixed-bottom NavBar">
+		<div className="fixed-bottom Footer">
 			<Link key="About" to="/about" className="nav-link">
 				About
 			</Link>{' '}

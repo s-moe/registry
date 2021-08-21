@@ -8,11 +8,33 @@ body {
 
 .NavBar {
   display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  background-color: #D0FFE4;
+  // color: #a468ff !important;
+    .nav-link{
+      color: #a468ff !important;
+    }
+    .nav-link:hover{
+      background-color: #ffecd0;
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      color: #ff7ceb;
+    }
+
+}
+
+.Footer{
+  display: flex;
   justify-content: space-around;
   width: 100%;
-  background-color: #f0f0f0;
+  background-color: #D0FFE4;
+    .nav-link{
+    color: #a468ff !important;
+  }
     .nav-link:hover{
-      color: red;
+      background-color: #ffecd0;
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      color: #ff7ceb;
     }
 }
 
@@ -47,4 +69,14 @@ body {
   .login-form{
     margin-top: 50px;
   }
+}
+.btn{
+  background-color: #a468ff !important;
+  border-color: #a468ff !important;
+}
+.btn:hover{
+  background-color: #ffecd0 !important;
+  border-color: #ffecd0 !important;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  color: #ff7ceb !important;
 }
