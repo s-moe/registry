@@ -91,125 +91,42 @@ export default function Login() {
 
 	return (
 		<div className="LoginPage">
-			<form onSubmit={handleLogin} className="login-form">
-				<div className="mb-3">
-					<label className="form-label">Email address</label>
+			<form onSubmit={handleLogin} className="form-signin">
+				<h1 className="h3 mb-3 fw-normal">Please sign in</h1>
+
+				<div className="form-floating">
+					<label className="floatingInput">Email address</label>
 					<input
 						type="email"
-						id="email"
+						id="floatingInput"
 						value={user.email}
 						onChange={handleChange}
 						className="form-control"
 						placeholder="name@example.com"
 					/>
 				</div>
-				<div className="mb-3">
-					<label className="form-label">Password</label>
+
+				<div className="form-floating">
+					<label className="floatingPassword">Password</label>
 					<input
 						type="password"
-						id="password"
+						id="floatingPassword"
 						value={user.password}
 						onChange={handleChange}
 						className="form-control"
-						placeholder="your password"
+						placeholder="Password"
 					/>
 				</div>
-				<div>
-					<input type="submit" value="Login" className="submit btn" />
+				<div className="checkbox mb-3">
+					<label>
+						<input type="checkbox" value="remember-me" /> Remember me{' '}
+					</label>
 				</div>
+
+				<button className="w-100 btn btn-lg btn-primary" type="submit">
+					Login
+				</button>
 			</form>
-
-			<button
-				className="btn btn-primary"
-				type="button"
-				data-toggle="collapse"
-				data-target="#collapseExample"
-				aria-expanded="false"
-				aria-controls="collapseExample"
-			>
-				Need an Account? Sign Up.
-			</button>
-			<div className="collapse mb-3" id="collapseExample">
-				<form
-					style={{ display: 'flex', flexDirection: 'column' }}
-					onSubmit={handleSignUp}
-					className="signup-form"
-				>
-					<div className="mb-3">
-						<label className="form-label">
-							First Name:
-							<input
-								type="text"
-								id="firstName"
-								value={user.firstName}
-								onChange={handleChange}
-								className="form-control"
-							/>
-						</label>
-					</div>
-
-					<div className="mb-3">
-						<label className="form-label">
-							Last Name:
-							<input
-								type="text"
-								id="lastName"
-								value={user.lastName}
-								onChange={handleChange}
-								className="form-control"
-							/>
-						</label>
-					</div>
-
-					<div className="mb-3">
-						<label className="form-label">
-							Email:
-							<input
-								type="text"
-								id="email"
-								value={user.email}
-								onChange={handleChange}
-								className="form-control"
-							/>
-						</label>
-					</div>
-
-					<div className="mb-3">
-						<label className="form-label">
-							Password:
-							<input
-								type="password"
-								id="password"
-								value={user.password}
-								onChange={handleChange}
-								className="form-control"
-							/>
-						</label>
-					</div>
-
-					<button
-						type="submit"
-						value="Register"
-						className="btn btn-success"
-						data-target="#collapseExample"
-						data-toggle="collapse"
-						aria-expanded="false"
-						aria-controls="collapseExample"
-					>
-						Register
-					</button>
-				</form>
-			</div>
-			<div>
-				{token ? (
-					<>
-						<CreateListing listings={listings} setListings={setListings} />
-						<Listings listings={listings} />
-					</>
-				) : (
-					''
-				)}
-			</div>
 		</div>
 	);
 }
