@@ -9,13 +9,24 @@ export default function Listings(props) {
 					return (
 						<li key={listing._id} className="col-sm-4">
 							<div className="card">
+								<img
+									src={listing.img}
+									alt="listing image"
+									className="card-img-top"
+								/>{' '}
+								{/*unsure what to put here*/}
 								<div className="card-body">
-									<img src={listing.img} alt="listing image" />{' '}
-									{/*unsure what to put here*/}
 									<h3 className="card-title">{listing.name}</h3>
-									<p className="card-description">{listing.description}</p>
-									<p className="card-qty">Quantity: {listing.qty}</p>
-									<p className="card-amount">Price: {listing.amount}</p>
+									<p className="card-description card-text">
+										{listing.description}
+									</p>
+									<p className="card-qty card-text">Quantity: {listing.qty}</p>
+									<p className="card-amount card-text">
+										Price: {listing.amount}
+									</p>
+								</div>{' '}
+								{/*card-body div end*/}
+								<div className="card-body">
 									<Edit listing={listing} />
 									<Delete listing={listing} />
 								</div>{' '}

@@ -16,7 +16,9 @@ const NavBar = props => {
 			<Link key="Home" to="/" className="nav-link nav-item">
 				Home
 			</Link>
-			<Link className="nav-link nav-item">Search for a Registry</Link>
+			<Link key="Search" to="/" className="nav-link nav-item">
+				Search for a Registry
+			</Link>
 		</nav>
 	);
 };

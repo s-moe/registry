@@ -60,70 +60,77 @@ export default function Edit(props) {
 				<form
 					style={{ display: 'flex', flexDirection: 'column' }}
 					onSubmit={handleUpdate}
+					className="edit-form"
 				>
-					<label>
-						{' '}
-						Image:{' '}
-						<input
-							type="text"
-							ref={imgInput}
-							defaultValue={props.listing.img}
-						/>
-					</label>
+					<div className="mb-3">
+						<label className="form-label">
+							{' '}
+							Image:{' '}
+							<input
+								type="text"
+								ref={imgInput}
+								defaultValue={props.listing.img}
+								className="form-control"
+							/>
+						</label>
 
-					<label>
-						{' '}
-						Title:{' '}
-						<input
-							type="text"
-							ref={nameInput}
-							defaultValue={props.listing.name}
-						/>
-					</label>
+						<label className="form-label">
+							{' '}
+							Title:{' '}
+							<input
+								type="text"
+								ref={nameInput}
+								defaultValue={props.listing.name}
+								className="form-control"
+							/>
+						</label>
 
-					<label>
-						{' '}
-						Description:{' '}
-						<input
-							type="text"
-							ref={descriptionInput}
-							defaultValue={props.listing.description}
-						/>
-					</label>
+						<label className="form-label">
+							{' '}
+							Description:{' '}
+							<input
+								type="text"
+								ref={descriptionInput}
+								defaultValue={props.listing.description}
+								className="form-control"
+							/>
+						</label>
 
-					<label>
-						{' '}
-						Quantity:{' '}
-						<input
-							type="text"
-							ref={qtyInput}
-							defaultValue={props.listing.qty}
-						/>
-					</label>
+						<label className="form-label">
+							{' '}
+							Quantity:{' '}
+							<input
+								type="text"
+								ref={qtyInput}
+								defaultValue={props.listing.qty}
+								className="form-control"
+							/>
+						</label>
 
-					<label>
-						{' '}
-						Price:{' '}
-						<input
-							type="text"
-							ref={amountInput}
-							defaultValue={props.listing.amount}
-						/>
-					</label>
-					<button
-						type="submit"
-						value="Submit Update"
-						className="btn btn-success"
-						data-target="#collapseExample"
-						data-toggle="collapse"
-						aria-expanded="false"
-						aria-controls="collapseExample"
-					>
-						Submit Update
-					</button>
+						<label className="form-label">
+							{' '}
+							Price:{' '}
+							<input
+								type="text"
+								ref={amountInput}
+								defaultValue={props.listing.amount}
+								className="form-control"
+							/>
+						</label>
+						<button
+							type="submit"
+							value="Submit Update"
+							className="btn btn-success"
+							data-target="#collapseExample"
+							data-toggle="collapse"
+							aria-expanded="false"
+							aria-controls="collapseExample"
+						>
+							Submit Update
+						</button>
+					</div>
 				</form>
 			</div>
 		</div>
-		//{/*collapse div end*/}
 	);
 }

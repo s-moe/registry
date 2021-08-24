@@ -90,45 +90,57 @@ export default function SignUp() {
 				onSubmit={handleSignUp}
 				className="signup-form"
 			>
-				<label>
-					First Name:
-					<input
-						type="text"
-						id="firstName"
-						value={user.firstName}
-						onChange={handleChange}
-					/>
-				</label>
+				<div className="mb-3">
+					<label className="form-label">
+						First Name:
+						<input
+							type="text"
+							id="firstName"
+							value={user.firstName}
+							onChange={handleChange}
+							className="form-control"
+						/>
+					</label>
+				</div>
 
-				<label>
-					Last Name:
-					<input
-						type="text"
-						id="lastName"
-						value={user.lastName}
-						onChange={handleChange}
-					/>
-				</label>
+				<div className="mb-3">
+					<label className="form-label">
+						Last Name:
+						<input
+							type="text"
+							id="lastName"
+							value={user.lastName}
+							onChange={handleChange}
+							className="form-control"
+						/>
+					</label>
+				</div>
 
-				<label>
-					Email:
-					<input
-						type="text"
-						id="email"
-						value={user.email}
-						onChange={handleChange}
-					/>
-				</label>
+				<div className="mb-3">
+					<label className="form-label">
+						Email:
+						<input
+							type="text"
+							id="email"
+							value={user.email}
+							onChange={handleChange}
+							className="form-control"
+						/>
+					</label>
+				</div>
 
-				<label>
-					Password:
-					<input
-						type="password"
-						id="password"
-						value={user.password}
-						onChange={handleChange}
-					/>
-				</label>
+				<div className="mb-3">
+					<label className="form-label">
+						Password:
+						<input
+							type="password"
+							id="password"
+							value={user.password}
+							onChange={handleChange}
+							className="form-control"
+						/>
+					</label>
+				</div>
 
 				<button
 					type="submit"
@@ -153,20 +165,36 @@ export default function SignUp() {
 				>
 					Already registered? Login.
 				</button>
-				<form onSubmit={handleLogin} className="collapse" id="collapseExample">
-					<input
-						type="text"
-						id="username"
-						value={user.email}
-						onChange={handleChange}
-					/>
-					<input
-						type="password"
-						id="password"
-						value={user.password}
-						onChange={handleChange}
-					/>
-					<input type="submit" value="Login" />
+				<form
+					onSubmit={handleLogin}
+					className="collapse mb-3"
+					id="collapseExample"
+				>
+					<div className="mb-3">
+						<label className="form-label">Email address</label>
+						<input
+							type="email"
+							id="email"
+							value={user.email}
+							onChange={handleChange}
+							className="form-control"
+							placeholder="name@example.com"
+						/>
+					</div>
+					<div className="mb-3">
+						<label className="form-label">Password</label>
+						<input
+							type="password"
+							id="password"
+							value={user.password}
+							onChange={handleChange}
+							className="form-control"
+							placeholder="your password"
+						/>
+					</div>
+					<div>
+						<input type="submit" value="Login" className="submit btn" />
+					</div>
 				</form>
 			</div>
 			<div>

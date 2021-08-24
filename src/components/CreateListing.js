@@ -51,53 +51,61 @@ export default function CreateListing(props) {
 				Create a Listing
 			</button>
 			<div className="collapse" id="collapseExample">
-				<form onSubmit={handleSubmit}>
-					<label>Image: </label>
-					<input
-						type="text"
-						id="img"
-						value={newListing.img}
-						onChange={handleChange}
-						className="img-input"
-					/>
-					<label>Title or Product Name: </label>
-					<input
-						type="text"
-						id="name"
-						value={newListing.name}
-						onChange={handleChange}
-						className="name-input"
-					/>
-					<label>Description: </label>
-					<input
-						type="text"
-						id="description"
-						value={newListing.description}
-						onChange={handleChange}
-						className="description-input"
-					/>
+				<form onSubmit={handleSubmit} className="create-form">
+					<div className="mb-3">
+						<label className="form-label">Image: </label>
+						<input
+							type="text"
+							id="img"
+							value={newListing.img}
+							onChange={handleChange}
+							className="img-input form-control"
+						/>
+					</div>
+					<div className="mb-3">
+						<label className="form-label">Title or Product Name: </label>
+						<input
+							type="text"
+							id="name"
+							value={newListing.name}
+							onChange={handleChange}
+							className="name-input form-control"
+						/>
+					</div>
+					<div className="mb-3">
+						<label className="form-label">Description: </label>
+						<input
+							type="text"
+							id="description"
+							value={newListing.description}
+							onChange={handleChange}
+							className="description-input form-control"
+						/>
+					</div>
+					<div className="mb-3">
+						<label className="form-label">Quantity: </label>
+						<input
+							type="number"
+							id="qty"
+							value={newListing.qty}
+							onChange={handleChange}
+							className="qty-input form-control"
+						/>
+					</div>
+					<div className="mb-3">
+						<label className="form-label">Price: </label>
+						<input
+							type="number"
+							id="amount"
+							value={newListing.amount}
+							onChange={handleChange}
+							className="amount-input form-control"
+						/>
+					</div>
 
-					<label>Quantity: </label>
-					<input
-						type="number"
-						id="qty"
-						value={newListing.qty}
-						onChange={handleChange}
-						className="qty-input"
-					/>
-					<label>Price: </label>
-					<input
-						type="number"
-						id="amount"
-						value={newListing.amount}
-						onChange={handleChange}
-						className="amount-input"
-					/>
-					<input type="submit" value="Add Item" className="add-btn" />
+					<input type="submit" value="Add Item" className="add-btn " />
 				</form>
 			</div>
-			{/*collapse end div*/}
 		</div>
-		//	{/*CreateComponent end div*/}
 	);
 }

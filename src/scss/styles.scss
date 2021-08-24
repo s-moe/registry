@@ -1,6 +1,11 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700");
 @import "reset";
 @import "grid";
+$zomp: #2e9598;
+$orange-yellow: #f7db69;
+$orange: #f26a44;
+$red: #ec1b4b;
+$purple: #a8216b;
 
 body {
   font-size: 16px;
@@ -10,15 +15,16 @@ body {
   display: flex;
   justify-content: flex-start;
   width: 100%;
-  background-color: #D0FFE4;
+  background-color: $zomp;
   // color: #a468ff !important;
     .nav-link{
-      color: #a468ff !important;
+      color: $orange-yellow !important;
     }
     .nav-link:hover{
-      background-color: #ffecd0;
+      background-color: $purple;
+      border: 2px solid $orange-yellow;
       box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-      color: #ff7ceb;
+
     }
 
 }
@@ -27,21 +33,20 @@ body {
   display: flex;
   justify-content: space-around;
   width: 100%;
-  background-color: #D0FFE4;
-    .nav-link{
-    color: #a468ff !important;
+  background-color: $zomp;
+  .nav-link{
+    color: $orange-yellow !important;
   }
-    .nav-link:hover{
-      background-color: #ffecd0;
-      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-      color: #ff7ceb;
-    }
+  .nav-link:hover{
+    background-color: $purple;
+    border: 2px solid $orange-yellow;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+  }
 }
 
 .HomePage {
-  div{
-    margin-top: 50px;
-  }
+
 }
 
 .AboutPage {
@@ -71,12 +76,12 @@ body {
   }
 }
 .btn{
-  background-color: #a468ff !important;
-  border-color: #a468ff !important;
+  background-color: $purple !important;
+  border-color: $purple !important;
 }
 .btn:hover{
-  background-color: #ffecd0 !important;
-  border-color: #ffecd0 !important;
+  background-color: $orange !important;
+  border-color: $orange !important;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  color: #ff7ceb !important;
+  // color: $purple !important
 }
