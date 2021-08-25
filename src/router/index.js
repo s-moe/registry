@@ -16,32 +16,22 @@ const AppRouter = () => {
 					item => !(item.key === 'About' || item.key === 'Contact')
 				)}
 			/>
-			<Switch>
-				{/*
-					{routes
-					.filter(item => !(item.key === 'About' || item.key === 'Contact'))
-					.map(({ Component, key, path }) => (
-						<Route
-							key={key}
-							exact
-							path={path}
-							component={() => <Component page={key} />}
-						></Route>
-					))}
-					*/}
-				<Route exact path="/">
-					<Home />
-				</Route>
-				<Route exact path="/signup">
-					<SignUp />
-				</Route>
-				<Route exact path="/login">
-					<Login />
-				</Route>
-				<Route exact path="/about">
-					<About />
-				</Route>
-			</Switch>
+			<div className="component-container">
+				<Switch>
+					<Route exact path="/">
+						<Home />
+					</Route>
+					<Route exact path="/signup">
+						<SignUp />
+					</Route>
+					<Route exact path="/login">
+						<Login />
+					</Route>
+					<Route exact path="/about">
+						<About />
+					</Route>
+				</Switch>
+			</div>
 			<Footer
 				routes={routes.filter(
 					item => !(item.key === 'Login' || item.key === 'SignUp')

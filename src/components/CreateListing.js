@@ -40,17 +40,10 @@ export default function CreateListing(props) {
 
 	return (
 		<div className="CreateComponent">
-			<button
-				className="btn btn-primary"
-				type="button"
-				data-toggle="collapse"
-				data-target="#collapseExample"
-				aria-expanded="false"
-				aria-controls="collapseExample"
-			>
+			<button className="btn btn-primary" type="button">
 				Create a Listing
 			</button>
-			<div className="collapse" id="collapseExample">
+			<div>
 				<form onSubmit={handleSubmit} className="create-form">
 					<div className="mb-3">
 						<label className="form-label">Image: </label>

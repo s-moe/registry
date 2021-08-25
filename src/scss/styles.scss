@@ -9,6 +9,7 @@ $purple: #a8216b;
 
 body {
   font-size: 16px;
+  overflow: auto;
 }
 
 .NavBar {
@@ -84,4 +85,28 @@ body {
   border-color: $orange !important;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   // color: $purple !important
+}
+
+.form-div{
+  margin-top: 100px;
+  display: block;
+  text-align: center;
+  .form-signin {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+  }
+
+}
+
+  .signup-div{
+    margin-top: 100px;
+    display: block;
+    text-align: center;
+
+
+}
+.component-container{
+  margin: 50px 0 50px 0;
 }

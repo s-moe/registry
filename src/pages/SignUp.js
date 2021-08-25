@@ -6,7 +6,8 @@ import Delete from '../components/Delete';
 import Edit from '../components/Edit';
 
 export default function SignUp() {
-	const [listings, setListings] = useState({}); //do I need anything else here? the img, title, description, etc.?
+	const [listings, setListings] = useState([]);
+	const [listing, setListing] = useState({});
 	const [token, setToken] = useState('');
 	const [user, setUser] = useState({
 		firstName: '',

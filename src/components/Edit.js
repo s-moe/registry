@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 
 export default function Edit(props) {
+	const collapse = props.collapse;
 	const imgInput = useRef(null);
 	const nameInput = useRef(null);
 	const descriptionInput = useRef(null);
@@ -48,15 +49,12 @@ export default function Edit(props) {
 			<button
 				className="btn btn-primary"
 				type="button"
-				data-toggle="collapse"
-				data-target="#collapseExample"
-				aria-expanded="false"
-				aria-controls="collapseExample"
+				id={`#${collapse.toString()}`}
 			>
 				Update/Edit Listing
 			</button>
 
-			<div className="collapse" id="collapseExample">
+			<div className="" id={collapse.toString()}>
 				<form
 					style={{ display: 'flex', flexDirection: 'column' }}
 					onSubmit={handleUpdate}
@@ -121,10 +119,6 @@ export default function Edit(props) {
 							type="submit"
 							value="Submit Update"
 							className="btn btn-success"
-							data-target="#collapseExample"
-							data-toggle="collapse"
-							aria-expanded="false"
-							aria-controls="collapseExample"
 						>
 							Submit Update
 						</button>
