@@ -40,63 +40,80 @@ export default function CreateListing(props) {
 
 	return (
 		<div className="CreateComponent">
-			<button className="btn btn-primary" type="button">
+			<button className="btn btn-primary mb-3" type="button">
 				Create a Listing
 			</button>
 			<div>
 				<form onSubmit={handleSubmit} className="create-form">
-					<div className="mb-3">
-						<label className="form-label">Image: </label>
+					<div className="mb-3 form-floating">
 						<input
 							type="text"
 							id="img"
 							value={newListing.img}
 							onChange={handleChange}
 							className="img-input form-control"
+							name="floatingImg"
 						/>
+						<label className="form-label" htmlFor="floatingImg">
+							Image{' '}
+						</label>
 					</div>
-					<div className="mb-3">
-						<label className="form-label">Title or Product Name: </label>
+					<div className="mb-3 form-floating">
 						<input
 							type="text"
 							id="name"
 							value={newListing.name}
 							onChange={handleChange}
 							className="name-input form-control"
+							name="floatingTitle"
 						/>
+						<label className="form-label" htmlFor="floatingTitle">
+							Title or Product Name
+						</label>
 					</div>
-					<div className="mb-3">
-						<label className="form-label">Description: </label>
+					<div className="mb-3 form-floating">
 						<input
 							type="text"
 							id="description"
 							value={newListing.description}
 							onChange={handleChange}
 							className="description-input form-control"
+							name="floatingDescription"
 						/>
+						<label className="form-label" htmlFor="floatingDescription">
+							Description{' '}
+						</label>
 					</div>
-					<div className="mb-3">
-						<label className="form-label">Quantity: </label>
+					<div className="mb-3 form-floating">
 						<input
 							type="number"
 							id="qty"
 							value={newListing.qty}
 							onChange={handleChange}
 							className="qty-input form-control"
+							name="floatingQty"
 						/>
+						<label className="form-label" htmlFor="floatingQty">
+							Quantity{' '}
+						</label>
 					</div>
-					<div className="mb-3">
-						<label className="form-label">Price: </label>
+					<div className="mb-3 form-floating">
 						<input
 							type="number"
 							id="amount"
 							value={newListing.amount}
 							onChange={handleChange}
 							className="amount-input form-control"
+							name="floatingPrice"
 						/>
+						<label className="form-label" htmlFor="floatingPrice">
+							Price
+						</label>
 					</div>
 
-					<input type="submit" value="Add Item" className="add-btn " />
+					<button className="btn btn-primary mb-3" type="button">
+						Add Item
+					</button>
 				</form>
 			</div>
 		</div>

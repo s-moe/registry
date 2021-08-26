@@ -79,47 +79,55 @@ export default function Login() {
 	};
 
 	const handleChange = e => {
-		setUser({ ...user, [e.target.id]: e.target.value });
+		setUser({ ...user, [e.target.name]: e.target.value });
 	};
 
 	return (
 		<div className="LoginPage">
-			<div className="form-div">
+			<div className="form-div ">
 				<form onSubmit={handleLogin} className="form-signin">
 					<h1 className="h3 mb-3 fw-normal">Please sign in</h1>
+
 					<div className="form-floating">
-						<label className="floatingInput" htmlFor={user.email}>
-							Email address
-						</label>
 						<input
 							type="email"
-							id={user.email}
+							name="email"
 							value={user.email}
 							onChange={handleChange}
-							className="form-control"
+							className="form-control col-auto"
 							placeholder="name@example.com"
+							id="floatingInput"
 						/>
+						<label htmlFor="floatingInput">Email address</label>
 					</div>
+
 					<div className="form-floating">
-						<label className="floatingPassword" htmlFor={user.password}>
-							Password
-						</label>
 						<input
 							type="password"
-							id={user.password}
+							name="password"
 							value={user.password}
 							onChange={handleChange}
-							className="form-control"
+							className="form-control col-auto"
 							placeholder="Password"
+							id="floatingPassword"
 						/>
+						<label htmlFor="floatingPassword">Password</label>
 					</div>
-					<div className="checkbox mb-3">
+					<div className="col-auto">
+						<span id="passwordHelpInline" className="form-text">
+							Must be 8-20 characters long.
+						</span>
+					</div>
+
+					{/*
+						<div className="checkbox mb-3">
 						<label>
 							<input type="checkbox" value="remember-me" /> Remember me{' '}
 						</label>
 					</div>
-					<div className="mb-3">
-						<button className="btn btn-success login-btn" type="submit">
+						*/}
+					<div className="mb-1">
+						<button className="w-100 btn btn-primary mb-3" type="submit">
 							Login
 						</button>
 					</div>
@@ -127,72 +135,83 @@ export default function Login() {
 			</div>
 
 			<div className="signup-div form-floating mb-3">
-				<button className="btn btn-primary" type="button">
+				<button
+					className="btn btn-primary mb-3"
+					type="button"
+					data-bs-toggle="collapse"
+					data-bs-target="#collapseSignUp"
+					aria-expanded="false"
+					aria-controls="collapseSignUp"
+				>
 					Need an Account? Sign Up.
 				</button>
 
-				<div className="mb-3">
-					<form
-						style={{ display: 'flex', flexDirection: 'column' }}
-						onSubmit={handleSignUp}
-						className="signup-form"
-					>
-						<div className="mb-3">
-							<label className="form-label form-floating">
-								First Name:
-								<input
-									type="text"
-									id="firstName"
-									value={user.firstName}
-									onChange={handleChange}
-									className="form-control"
-								/>
+				<div className="mb-3 form-floating row collapse" id="collapseSignUp">
+					<form onSubmit={handleSignUp} className="signup-form row">
+						<div className="mb-3  form-floating col-md-6">
+							<input
+								type="text"
+								name="firstName"
+								value={user.firstName}
+								onChange={handleChange}
+								className="form-control"
+								id="floatingFirstName"
+							/>
+							<label className="form-label" htmlFor="floatingFirstName">
+								First Name
 							</label>
 						</div>
 
-						<div className="mb-3">
-							<label className="form-label form-floating">
-								Last Name:
-								<input
-									type="text"
-									id="lastName"
-									value={user.lastName}
-									onChange={handleChange}
-									className="form-control"
-								/>
+						<div className="mb-3 form-floating col-md-6">
+							<input
+								type="text"
+								name="lastName"
+								value={user.lastName}
+								onChange={handleChange}
+								className="form-control"
+								id="floatingLastName"
+							/>
+							<label className="form-label" htmlFor="floatingLastName">
+								Last Name
 							</label>
 						</div>
 
-						<div className="mb-3">
-							<label className="form-label form-floating">
-								Email:
-								<input
-									type="text"
-									id="email"
-									value={user.email}
-									onChange={handleChange}
-									className="form-control"
-								/>
+						<div className="mb-3 form-floating col-md-6">
+							<input
+								type="text"
+								name="email"
+								value={user.email}
+								onChange={handleChange}
+								className="form-control"
+								id="floatingEmail"
+							/>
+							<label className="form-label" htmlFor="floatingEmail">
+								Email
 							</label>
 						</div>
 
-						<div className="mb-3">
-							<label className="form-label form-floating">
-								Password:
-								<input
-									type="password"
-									id="password"
-									value={user.password}
-									onChange={handleChange}
-									className="form-control"
-								/>
+						<div className="mb-3 form-floating col-md-6">
+							<input
+								type="password"
+								name="password"
+								value={user.password}
+								onChange={handleChange}
+								className="form-control"
+								id="floatingPasscode"
+							/>
+							<label className="form-label" htmlFor="floatingPasscode">
+								Password
 							</label>
 						</div>
 						<div className="mb-3">
 							<button
 								type="submit"
 								value="Register"
-								className="btn btn-success"
+								className="btn btn-success mb-3"
+								data-bs-toggle="collapse"
+								data-bs-target="#collapseSignUp"
+								aria-expanded="false"
+								aria-controls="collapseSignUp"
 							>
 								Register
 							</button>
@@ -204,7 +223,7 @@ export default function Login() {
 			<div>
 				{token ? (
 					<>
-						<CreateListing listings={listings} />
+						<CreateListing listings={listings} setListings={setListings} />
 						<Listings listings={listings} setListing={setListing} />
 					</>
 				) : (

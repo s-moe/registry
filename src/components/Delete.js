@@ -13,7 +13,7 @@ export default function Delete(props) {
 		} catch (error) {
 			console.error(error);
 		} finally {
-			window.location.assign('/myaccount');
+			window.location.assign('/login');
 		}
 	};
 
