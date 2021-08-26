@@ -39,7 +39,7 @@ export default function CreateListing(props) {
 	};
 
 	return (
-		<div className="CreateComponent">
+		<div className="CreateComponent container">
 			<button className="btn btn-primary mb-3" type="button">
 				Create a Listing
 			</button>
@@ -111,7 +111,7 @@ export default function CreateListing(props) {
 						</label>
 					</div>
 
-					<button className="btn btn-primary mb-3" type="button">
+					<button className="btn btn-primary mb-3" type="submit">
 						Add Item
 					</button>
 				</form>

@@ -4,12 +4,12 @@ import React from 'react';
 
 export default function Listings(props) {
 	return (
-		<div className="listings">
+		<div className="listings container">
 			<ul className="row">
 				{props.listings &&
 					props.listings.map(listing => {
 						return (
-							<li key={listing._id} className="col-sm-4">
+							<li key={listing._id} className="col-sm-3">
 								<div className="card">
 									<img
 										src={listing.img}

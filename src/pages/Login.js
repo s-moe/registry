@@ -134,7 +134,7 @@ export default function Login() {
 				</form>
 			</div>
 
-			<div className="signup-div form-floating mb-3">
+			<div className="signup-div form-floating mb-3 container">
 				<button
 					className="btn btn-primary mb-3"
 					type="button"
@@ -199,7 +199,7 @@ export default function Login() {
 								className="form-control"
 								id="floatingPasscode"
 							/>
-							<label className="form-label" htmlFor="floatingPasscode">
+							<label className="form-label" htmlFor="floatingPassword">
 								Password
 							</label>
 						</div>

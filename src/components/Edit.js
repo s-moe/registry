@@ -136,6 +136,10 @@ export default function Edit(props) {
 						type="submit"
 						value="Submit Update"
 						className="btn btn-success mb-3"
+						data-bs-toggle="collapse"
+						data-bs-target={`#a${props.collapse}`}
+						aria-expanded="false"
+						aria-controls={props.collapse}
 					>
 						Submit Update
 					</button>
