@@ -4,13 +4,15 @@ import { Link } from 'react-router-dom';
 
 export default function Footer() {
 	return (
-		<div className="fixed-bottom Footer">
-			<Link key="About" to="/about" className="nav-link">
-				About
-			</Link>{' '}
-			<Link key="Contact" to="/contact" className="nav-link">
-				Contact
-			</Link>
+		<div className="container">
+			<div className="fixed-bottom Footer">
+				<Link key="About" to="/about" className="nav-link">
+					About
+				</Link>{' '}
+				<Link key="Contact" to="/contact" className="nav-link">
+					Contact
+				</Link>
+			</div>
 		</div>
 	);
 }

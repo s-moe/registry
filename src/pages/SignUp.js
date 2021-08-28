@@ -40,7 +40,7 @@ export default function SignUp() {
 	}, [listings]);
 
 	const handleChange = e => {
-		setUser({ ...user, [e.target.id]: e.target.value });
+		setUser({ ...user, [e.target.name]: e.target.value });
 	};
 
 	const handleSignUp = async e => {
@@ -54,6 +54,7 @@ export default function SignUp() {
 				body: JSON.stringify(user)
 			});
 			const data = await response.json();
+			console.log(data);
 			setToken(data.token);
 			setLoggedInUser(data.user.email);
 			window.localStorage.setItem('token', data.token);
@@ -86,123 +87,155 @@ export default function SignUp() {
 
 	return (
 		<div className="SignUpPage">
-			<form
-				style={{ display: 'flex', flexDirection: 'column' }}
-				onSubmit={handleSignUp}
-				className="signup-form"
-			>
-				<div className="mb-3">
-					<label className="form-label">
-						First Name:
-						<input
-							type="text"
-							id="firstName"
-							value={user.firstName}
-							onChange={handleChange}
-							className="form-control"
-						/>
-					</label>
-				</div>
+			<div className="signup-div form-floating mb-3 container">
+				<h1 className="h3 mb-3 fw-normal">Create your account</h1>
 
-				<div className="mb-3">
-					<label className="form-label">
-						Last Name:
-						<input
-							type="text"
-							id="lastName"
-							value={user.lastName}
-							onChange={handleChange}
-							className="form-control"
-						/>
-					</label>
-				</div>
+				<div className="mb-3 form-floating row">
+					<form onSubmit={handleSignUp} className="signup-form row">
+						<div className="mb-3  form-floating col-md-6">
+							<input
+								type="text"
+								name="firstName"
+								value={user.firstName}
+								onChange={handleChange}
+								className="form-control"
+								id="floatingFirstName"
+							/>
+							<label className="form-label" htmlFor="floatingFirstName">
+								First Name
+							</label>
+						</div>
 
-				<div className="mb-3">
-					<label className="form-label">
-						Email:
-						<input
-							type="text"
-							id="email"
-							value={user.email}
-							onChange={handleChange}
-							className="form-control"
-						/>
-					</label>
-				</div>
+						<div className="mb-3 form-floating col-md-6">
+							<input
+								type="text"
+								name="lastName"
+								value={user.lastName}
+								onChange={handleChange}
+								className="form-control"
+								id="floatingLastName"
+							/>
+							<label className="form-label" htmlFor="floatingLastName">
+								Last Name
+							</label>
+						</div>
 
-				<div className="mb-3">
-					<label className="form-label">
-						Password:
-						<input
-							type="password"
-							id="password"
-							value={user.password}
-							onChange={handleChange}
-							className="form-control"
-						/>
-					</label>
-				</div>
+						<div className="mb-3 form-floating col-md-6">
+							<input
+								type="text"
+								name="email"
+								value={user.email}
+								onChange={handleChange}
+								className="form-control"
+								id="floatingEmail"
+							/>
+							<label className="form-label" htmlFor="floatingEmail">
+								Email
+							</label>
+						</div>
 
+						<div className="mb-3 form-floating col-md-6">
+							<input
+								type="password"
+								name="password"
+								value={user.password}
+								onChange={handleChange}
+								className="form-control"
+								id="floatingPasscode"
+							/>
+							<label className="form-label" htmlFor="floatingPassword">
+								Password
+							</label>
+						</div>
+						<div className="mb-3">
+							<button
+								type="submit"
+								value="Register"
+								className="btn btn-success mb-3"
+							>
+								Register
+							</button>
+						</div>
+					</form>
+				</div>
+			</div>
+
+			<div className="form-div">
 				<button
-					type="submit"
-					value="Register"
-					className="btn btn-success"
-					data-target="#collapseExample"
-					data-toggle="collapse"
-					aria-expanded="false"
-					aria-controls="collapseExample"
-				>
-					Register
-				</button>
-			</form>
-			<div>
-				<button
-					className="btn btn-primary"
+					className="btn btn-primary mb-3"
 					type="button"
-					data-toggle="collapse"
-					data-target="#collapseExample"
+					data-bs-toggle="collapse"
+					data-bs-target="#collapseLogin"
 					aria-expanded="false"
-					aria-controls="collapseExample"
+					aria-controls="collapseLogin"
 				>
-					Already registered? Login.
+					Already have an account? Login.
 				</button>
 				<form
 					onSubmit={handleLogin}
-					className="collapse mb-3"
-					id="collapseExample"
+					className="form-signin collapse mb-3"
+					id="collapseLogin"
 				>
-					<div className="mb-3">
-						<label className="form-label">Email address</label>
+					<h1 className="h3 mb-3 fw-normal">Please sign in</h1>
+
+					<div className="form-floating">
 						<input
 							type="email"
-							id="email"
+							name="email"
 							value={user.email}
 							onChange={handleChange}
-							className="form-control"
+							className="form-control col-auto"
 							placeholder="name@example.com"
+							id="floatingInput"
 						/>
+						<label htmlFor="floatingInput">Email address</label>
 					</div>
-					<div className="mb-3">
-						<label className="form-label">Password</label>
+
+					<div className="form-floating">
 						<input
 							type="password"
-							id="password"
+							name="password"
 							value={user.password}
 							onChange={handleChange}
-							className="form-control"
-							placeholder="your password"
+							className="form-control col-auto"
+							placeholder="Password"
+							id="floatingPassword"
 						/>
+						<label htmlFor="floatingPassword">Password</label>
 					</div>
-					<div>
-						<input type="submit" value="Login" className="submit btn" />
+					<div className="col-auto">
+						<span id="passwordHelpInline" className="form-text">
+							Must be 8-20 characters long.
+						</span>
+					</div>
+
+					{/*
+						<div className="checkbox mb-3">
+						<label>
+							<input type="checkbox" value="remember-me" /> Remember me{' '}
+						</label>
+					</div>
+						*/}
+					<div className="mb-1">
+						<button
+							className="w-100 btn btn-primary mb-3"
+							type="submit"
+							data-bs-toggle="collapse"
+							data-bs-target="#collapseLogin"
+							aria-expanded="false"
+							aria-controls="collapseLogin"
+						>
+							Login
+						</button>
 					</div>
 				</form>
 			</div>
+
 			<div>
-				{token ? (
+				{token && loggedInUser === 'sarahmoe@admindotty.com' ? (
 					<>
 						<CreateListing listings={listings} setListings={setListings} />
-						<Listings listings={listings} />
+						<Listings listings={listings} setListing={setListing} />
 					</>
 				) : (
 					''

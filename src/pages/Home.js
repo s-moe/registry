@@ -4,6 +4,7 @@ import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import SignUp from './SignUp';
 import Login from './Login';
+import Search from './Search';
 
 export default function Home() {
 	return (
@@ -41,7 +42,7 @@ export default function Home() {
 						<Link to="/signup" className="btn btn-primary">
 							Sign Up
 						</Link>
-						<Link to="/login" className="btn btn-primary">
+						<Link to="/search" className="btn btn-primary">
 							Find a Registry
 						</Link>
 					</div>

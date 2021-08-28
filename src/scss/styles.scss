@@ -17,7 +17,7 @@ body {
   justify-content: flex-start;
   width: 100%;
   background-color: $zomp;
-  // color: #a468ff !important;
+
     .nav-link{
       color: $orange-yellow !important;
     }
@@ -28,6 +28,18 @@ body {
 
     }
 
+}
+
+.navbar-toggler{
+  border-color: $purple;
+
+}
+
+.current{
+  background-color: $orange-yellow;
+  border: 2px solid $purple;
+  color: $purple;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .Footer{
@@ -66,6 +78,7 @@ body {
 
 }
 .SignUpPage{
+  margin-top: 100px;
   .signup-form{
     margin-top: 50px;
   }
@@ -100,6 +113,17 @@ body {
 
 }
 
+.login-div{
+  display: block;
+  text-align: center;
+    .form-signin {
+      display: inline-block;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+}
+
   .signup-div{
     margin-top: 5px;
     display: block;
@@ -109,4 +133,11 @@ body {
 }
 .component-container{
   margin: 50px 0 50px 0;
+}
+
+.active{
+  background-color: $purple;
+}
+.carousel-inner{
+  margin-top: 100px;
 }

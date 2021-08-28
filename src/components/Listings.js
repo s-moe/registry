@@ -31,12 +31,19 @@ export default function Listings(props) {
 									</div>{' '}
 									{/*card-body div end*/}
 									<div className="card-body">
-										<Edit
-											listing={listing}
-											setListing={props.setListing}
-											collapse={listing._id}
-										/>
-										<Delete listing={listing} />
+										{props.token &&
+										props.loggedInUser === 'sarahmoe@admindotty.com' ? (
+											<>
+												<Edit
+													listing={listing}
+													setListing={props.setListing}
+													collapse={listing._id}
+												/>
+												<Delete listing={listing} />
+											</>
+										) : (
+											''
+										)}
 									</div>{' '}
 									{/*card-body div end*/}
 								</div>{' '}

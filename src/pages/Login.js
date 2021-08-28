@@ -49,6 +49,7 @@ export default function Login() {
 				body: JSON.stringify(user)
 			});
 			const data = await response.json();
+			console.log(data);
 			setToken(data.token);
 			setLoggedInUser(data.user.email);
 			window.localStorage.setItem('token', data.token);
@@ -84,8 +85,8 @@ export default function Login() {
 
 	return (
 		<div className="LoginPage">
-			<div className="form-div ">
-				<form onSubmit={handleLogin} className="form-signin">
+			<div className="form-div">
+				<form onSubmit={handleLogin} className="form-signin ">
 					<h1 className="h3 mb-3 fw-normal">Please sign in</h1>
 
 					<div className="form-floating">

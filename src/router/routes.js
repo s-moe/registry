@@ -4,6 +4,8 @@ import SignUp from '../pages/SignUp';
 import Home from '../pages/Home';
 import Contact from '../pages/Contact';
 import About from '../pages/About';
+import HowItWorks from '../pages/HowItWorks';
+import Search from '../pages/Search';
 
 const routes = [
 	{
@@ -31,6 +33,16 @@ const routes = [
 		Component: Home,
 		key: 'Home',
 		path: '/'
+	},
+	{
+		Component: HowItWorks,
+		key: 'HowItWorks',
+		path: '/howitworks'
+	},
+	{
+		Component: Search,
+		key: 'Search',
+		path: '/search'
 	}
 ];
 

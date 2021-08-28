@@ -35,7 +35,7 @@ const registerService = async (req, res) => {
   try{
     const createdUser = await User.create(req.body)
     const token = jwt.sign({
-      username: createdUser.username
+      user: createdUser.email
     }, SECRET)
     res.status(200).json({
       user: createdUser,
@@ -60,13 +60,13 @@ const loginService = async(req, res) => {
   //token to the front end
   console.log(req.body)
   try{
-    const foundUser = await User.findOne({ username: req.body.username })
+    const foundUser = await User.findOne({ user: req.body.email })
     //will get back a user object and other googbly-guck
     req.body.password = hash(req.body.password)
     //almost there
     if (bcrypt.compareSync(req.body.password, foundUser.password)) {
       const token = jwt.sign({
-        username: foundUser.username
+        user: foundUser.email
       }, SECRET)
       res.status(200).json({ user: foundUser, token })
     }else{
