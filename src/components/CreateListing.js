@@ -53,10 +53,9 @@ export default function CreateListing(props) {
 							onChange={handleChange}
 							className="img-input form-control"
 							name="floatingImg"
+							placeholder="Image"
 						/>
-						<label className="form-label" htmlFor="floatingImg">
-							Image{' '}
-						</label>
+						<label htmlFor="floatingImg">Image </label>
 					</div>
 					<div className="mb-3 form-floating">
 						<input
@@ -66,10 +65,9 @@ export default function CreateListing(props) {
 							onChange={handleChange}
 							className="name-input form-control"
 							name="floatingTitle"
+							placeholder="Title"
 						/>
-						<label className="form-label" htmlFor="floatingTitle">
-							Title or Product Name
-						</label>
+						<label htmlFor="floatingTitle">Title or Product Name</label>
 					</div>
 					<div className="mb-3 form-floating">
 						<input
@@ -79,10 +77,9 @@ export default function CreateListing(props) {
 							onChange={handleChange}
 							className="description-input form-control"
 							name="floatingDescription"
+							placeholder="Description"
 						/>
-						<label className="form-label" htmlFor="floatingDescription">
-							Description{' '}
-						</label>
+						<label htmlFor="floatingDescription">Description </label>
 					</div>
 					<div className="mb-3 form-floating">
 						<input
@@ -92,10 +89,9 @@ export default function CreateListing(props) {
 							onChange={handleChange}
 							className="qty-input form-control"
 							name="floatingQty"
+							placeholder="Quantity"
 						/>
-						<label className="form-label" htmlFor="floatingQty">
-							Quantity{' '}
-						</label>
+						<label htmlFor="floatingQty">Quantity </label>
 					</div>
 					<div className="mb-3 form-floating">
 						<input
@@ -105,10 +101,9 @@ export default function CreateListing(props) {
 							onChange={handleChange}
 							className="amount-input form-control"
 							name="floatingPrice"
+							placeholder="Price"
 						/>
-						<label className="form-label" htmlFor="floatingPrice">
-							Price
-						</label>
+						<label htmlFor="floatingPrice">Price</label>
 					</div>
 
 					<button className="btn btn-primary mb-3" type="submit">

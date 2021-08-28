@@ -1,13 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import Listings from '../components/Listings';
 
 export default function Search() {
 	const [listings, setListings] = useState([]);
-	const [token, setToken] = useState('');
-	const [loggedInUser, setLoggedInUser] = useState('');
+
+	useEffect(() => {
+		(async () => {
+			try {
+				const response = await fetch('/api/registries');
+				const data = await response.json();
+				setListings(data);
+			} catch (error) {
+				console.error(error);
+			}
+		})();
+	}, []);
 
 	return (
-		<Listings listings={listings} token={token} loggedInUser={loggedInUser} />
+		<div className="listings-container">
+			<Listings listings={listings} />;
+		</div>
 	);
 }

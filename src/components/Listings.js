@@ -31,8 +31,7 @@ export default function Listings(props) {
 									</div>{' '}
 									{/*card-body div end*/}
 									<div className="card-body">
-										{props.token &&
-										props.loggedInUser === 'sarahmoe@admindotty.com' ? (
+										{props.token && props.loggedInUser ? (
 											<>
 												<Edit
 													listing={listing}

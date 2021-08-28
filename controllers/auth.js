@@ -60,7 +60,7 @@ const loginService = async(req, res) => {
   //token to the front end
   console.log(req.body)
   try{
-    const foundUser = await User.findOne({ user: req.body.email })
+    const foundUser = await User.findOne({ email: req.body.email })
     //will get back a user object and other googbly-guck
     req.body.password = hash(req.body.password)
     //almost there

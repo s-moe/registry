@@ -78,16 +78,39 @@ body {
 
 }
 .SignUpPage{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin-top: 100px;
   .signup-form{
     margin-top: 50px;
   }
+  .form-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
 }
 
 .LoginPage{
-  .login-form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+  .signup-form{
     margin-top: 50px;
   }
+  .form-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
 }
 .btn{
   background-color: $purple !important;
@@ -100,37 +123,13 @@ body {
   // color: $purple !important
 }
 
-.form-div{
-  margin-top: 100px;
-  display: block;
-  text-align: center;
-  .form-signin {
-    display: inline-block;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-  }
-
-}
-
-.login-div{
-  display: block;
-  text-align: center;
-    .form-signin {
-      display: inline-block;
-      margin-left: auto;
-      margin-right: auto;
-      text-align: center;
-    }
-}
-
-  .signup-div{
-    margin-top: 5px;
-    display: block;
-    text-align: center;
+// .form-div{
+//
+//   justify-content: center;
+//   align-items: center;
+// }
 
 
-}
 .component-container{
   margin: 50px 0 50px 0;
 }
@@ -139,5 +138,8 @@ body {
   background-color: $purple;
 }
 .carousel-inner{
+  margin-top: 100px;
+}
+.listings-container{
   margin-top: 100px;
 }
