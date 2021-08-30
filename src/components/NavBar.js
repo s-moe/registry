@@ -7,10 +7,10 @@ import { NavLink } from 'react-router-dom';
 
 const NavBar = props => {
 	return (
-		<div className="container">
+		<div className="ContainerShowSidebar">
 			<nav className="NavBar-default fixed-top navbar-expand-md navbar nav">
 				<button
-					className="navbar-toggle"
+					className="navbar-toggler"
 					type="button"
 					data-bs-toggle="collapse"
 					data-bs-target="#toggleMobileMenu"
@@ -18,7 +18,7 @@ const NavBar = props => {
 					aria-expanded="false"
 					aria-label="Toggle navigation"
 				>
-					<span className="navbar-toggler-icon toggle"></span>
+					<i className="fas fa-bars"></i>
 				</button>
 
 				<div className="collapse navbar-collapse" id="toggleMobileMenu">
