@@ -1,6 +1,7 @@
 //RUD
 //go to Arthur when show route
-
+const User = require('../models/user');
+const router = require('express').Router();
 //Read
 
   //Index Route - for owner of website - high up admin person
@@ -18,7 +19,7 @@
   })
 
 
-  //Show Route - for specific profile - condition - if this user is logged in, show this if not, then this 
+  //Show Route - for specific profile - condition - if this user is logged in, show this if not, then this
 
 
 

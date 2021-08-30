@@ -19,7 +19,7 @@ export default function Search() {
 
 	return (
 		<div className="listings-container">
-			<Listings listings={listings} />;
+			<Listings listings={listings} />
 		</div>
 	);
 }

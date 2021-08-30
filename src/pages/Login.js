@@ -212,7 +212,12 @@ export default function Login() {
 				{token ? (
 					<>
 						<CreateListing listings={listings} setListings={setListings} />
-						<Listings listings={listings} setListing={setListing} />
+						<Listings
+							listings={listings}
+							setListing={setListing}
+							token={token}
+							loggedInUser={loggedInUser}
+						/>
 					</>
 				) : (
 					''

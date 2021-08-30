@@ -4,8 +4,9 @@ const app = express();
 const PORT = process.env.PORT || 8000;
 const mongoose = require('mongoose');
 const path = require('path');
-const registryController = require('./controllers/registries')
-const {hash, login, register } = require('./controllers/auth')
+const registryController = require('./controllers/registries');
+const {hash, login, register } = require('./controllers/auth');
+const userController = require('./controllers/users')
 
 const MONGODB_URI = process.env.MONGODB_URI
 const db = mongoose.connection;
@@ -25,7 +26,7 @@ if (process.env.NODE_ENV !== 'development'){
 
 /* Controller Goes Here Remove the tes*/
 app.use('/api/registries', registryController)
-
+app.use('/api/users', userController)
 app.post('/api/signup', register)
 app.post('/api/login', login)
 /* Controller Ends here */
