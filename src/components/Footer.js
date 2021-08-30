@@ -1,17 +1,29 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 //do I need to import About and Contact Pages?
 
 export default function Footer() {
 	return (
 		<div className="container">
 			<div className="fixed-bottom Footer">
-				<Link key="About" to="/about" className="nav-link">
+				<NavLink
+					key="About"
+					to="/about"
+					className="nav-link"
+					exact
+					activeClassName="activeLink"
+				>
 					About
-				</Link>{' '}
-				<Link key="Contact" to="/contact" className="nav-link">
+				</NavLink>{' '}
+				<NavLink
+					key="Contact"
+					to="/contact"
+					className="nav-link"
+					exact
+					activeClassName="activeLink"
+				>
 					Contact
-				</Link>
+				</NavLink>
 			</div>
 		</div>
 	);

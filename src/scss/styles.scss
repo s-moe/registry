@@ -12,14 +12,13 @@ body {
   overflow: auto;
 }
 
-.NavBar {
+.NavBar-default {
   display: flex;
   justify-content: flex-start;
   width: 100%;
   background-color: $zomp;
-
     .nav-link{
-      color: $orange-yellow !important;
+      color: $orange-yellow;
     }
     .nav-link:hover{
       background-color: $purple;
@@ -27,19 +26,16 @@ body {
       box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 
     }
-
 }
 
-.navbar-toggler{
-  border-color: $purple;
-
-}
-
-.current{
-  background-color: $orange-yellow;
-  border: 2px solid $purple;
-  color: $purple;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+// @media only screen and (max-width: 300px){
+//   .navbar-toggler-icon{
+//     display: none;
+//   }
+//
+// }
+.navbar-toggler-icon{
+  background-image: url('https://mdbcdn.b-cdn.net/img/svg/hamburger7.svg?color=BFE100');
 }
 
 .Footer{
@@ -47,8 +43,9 @@ body {
   justify-content: space-around;
   width: 100%;
   background-color: $zomp;
+  padding: 10px;
   .nav-link{
-    color: $orange-yellow !important;
+    color: $orange-yellow;
   }
   .nav-link:hover{
     background-color: $purple;
@@ -57,6 +54,16 @@ body {
 
   }
 }
+.activeLink{
+  background-color: $orange;
+  border: 2px solid $purple;
+  color: $purple !important;
+}
+
+.activeLink:hover{
+  background-color: $orange-yellow !important;
+}
+
 
 .HomePage {
 
@@ -120,23 +127,16 @@ body {
   background-color: $orange !important;
   border-color: $orange !important;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  // color: $purple !important
+
 }
 
-// .form-div{
-//
-//   justify-content: center;
-//   align-items: center;
-// }
 
 
 .component-container{
   margin: 50px 0 50px 0;
 }
 
-.active{
-  background-color: $purple;
-}
+
 .carousel-inner{
   margin-top: 100px;
 }

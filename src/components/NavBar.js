@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+// import {  } from 'react-router';
 //do I need to import SignUp and Login?
 //SignUp will be the register/make a user
 //Login will be authorize the user and show them their page
@@ -7,9 +8,9 @@ import { Link } from 'react-router-dom';
 const NavBar = props => {
 	return (
 		<div className="container">
-			<nav className="NavBar fixed-top navbar-expand-md navbar">
+			<nav className="NavBar-default fixed-top navbar-expand-md navbar nav">
 				<button
-					className="navbar-toggler"
+					className="navbar-toggle"
 					type="button"
 					data-bs-toggle="collapse"
 					data-bs-target="#toggleMobileMenu"
@@ -17,25 +18,55 @@ const NavBar = props => {
 					aria-expanded="false"
 					aria-label="Toggle navigation"
 				>
-					<span className="navbar-toggler-icon"></span>
+					<span className="navbar-toggler-icon toggle"></span>
 				</button>
 
 				<div className="collapse navbar-collapse" id="toggleMobileMenu">
-					<Link key="SignUp" to="/signup" className="nav-link nav-item">
+					<NavLink
+						key="SignUp"
+						to="/signup"
+						className="nav-link nav-item"
+						exact
+						activeClassName="activeLink"
+					>
 						Register
-					</Link>{' '}
-					<Link key="Login" to="/login" className="nav-link nav-item">
+					</NavLink>{' '}
+					<NavLink
+						key="Login"
+						to="/login"
+						className="nav-link nav-item"
+						exact
+						activeClassName="activeLink"
+					>
 						Login
-					</Link>
-					<Link key="Home" to="/" className="nav-link nav-item">
+					</NavLink>
+					<NavLink
+						key="Home"
+						to="/"
+						className="nav-link nav-item"
+						exact
+						activeClassName="activeLink"
+					>
 						Home
-					</Link>
-					<Link key="HowItWorks" to="/howitworks" className="nav-link nav-item">
+					</NavLink>
+					<NavLink
+						key="HowItWorks"
+						to="/howitworks"
+						className="nav-link nav-item"
+						exact
+						activeClassName="activeLink"
+					>
 						How It Works
-					</Link>
-					<Link key="Search" to="/search" className="nav-link nav-item">
+					</NavLink>
+					<NavLink
+						key="Search"
+						to="/search"
+						className="nav-link nav-item"
+						exact
+						activeClassName="activeLink"
+					>
 						Search for a Registry
-					</Link>
+					</NavLink>
 				</div>
 			</nav>
 		</div>
