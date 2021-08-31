@@ -204,8 +204,8 @@ export default function Login() {
 				}
 			>
 				{toggleLogin
-					? "Don't have an account? Register."
-					: 'Already have an account? Login.'}
+					? 'Already have an account? Login.'
+					: "Don't have an account? Register."}
 			</button>
 
 			<div>
