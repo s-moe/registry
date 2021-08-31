@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { HiMenu } from 'react-icons/hi';
 // import {  } from 'react-router';
 //do I need to import SignUp and Login?
 //SignUp will be the register/make a user
@@ -18,7 +19,7 @@ const NavBar = props => {
 					aria-expanded="false"
 					aria-label="Toggle navigation"
 				>
-					<i className="fas fa-bars"></i>
+					<HiMenu className="hamburger" size="40px" color="black" />
 				</button>
 
 				<div className="collapse navbar-collapse" id="toggleMobileMenu">
