@@ -1,12 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import { HiMenu } from 'react-icons/hi';
-// import {  } from 'react-router';
-//do I need to import SignUp and Login?
-//SignUp will be the register/make a user
-//Login will be authorize the user and show them their page
+import { context } from './context';
+import { useHistory } from 'react-router-dom';
 
 const NavBar = props => {
+	const { setToken, token, loggedInUser } = useContext(context);
+
+	let history = useHistory();
+
+	const logout = () => {
+		localStorage.clear();
+		setToken('');
+		history.push('/');
+	};
+
 	return (
 		<div className="ContainerShowSidebar">
 			<nav className="NavBar-default fixed-top navbar-expand-md navbar nav">
@@ -23,24 +31,6 @@ const NavBar = props => {
 				</button>
 
 				<div className="collapse navbar-collapse" id="toggleMobileMenu">
-					<NavLink
-						key="SignUp"
-						to="/signup"
-						className="nav-link nav-item"
-						exact
-						activeClassName="activeLink"
-					>
-						Register
-					</NavLink>{' '}
-					<NavLink
-						key="Login"
-						to="/login"
-						className="nav-link nav-item"
-						exact
-						activeClassName="activeLink"
-					>
-						Login
-					</NavLink>
 					<NavLink
 						key="Home"
 						to="/"
@@ -68,6 +58,35 @@ const NavBar = props => {
 					>
 						Search for a Registry
 					</NavLink>
+					<div>
+						{token ? (
+							<>
+								<p>{loggedInUser}</p>
+								<button onClick={logout}>Log out</button>
+							</>
+						) : (
+							<>
+								<NavLink
+									key="SignUp"
+									to="/signup"
+									className="nav-link nav-item"
+									exact
+									activeClassName="activeLink"
+								>
+									Register
+								</NavLink>{' '}
+								<NavLink
+									key="Login"
+									to="/login"
+									className="nav-link nav-item"
+									exact
+									activeClassName="activeLink"
+								>
+									Login
+								</NavLink>
+							</>
+						)}
+					</div>
 				</div>
 			</nav>
 		</div>

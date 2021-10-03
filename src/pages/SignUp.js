@@ -160,7 +160,7 @@ export default function SignUp() {
 					<form onSubmit={handleLogin} className="form-signin mb-3">
 						<div className="form-floating">
 							<input
-								type="email"
+								type="text"
 								name="email"
 								value={user.email}
 								onChange={handleChange}
@@ -173,7 +173,7 @@ export default function SignUp() {
 
 						<div className="form-floating">
 							<input
-								type="password"
+								type="text"
 								name="password"
 								value={user.password}
 								onChange={handleChange}
