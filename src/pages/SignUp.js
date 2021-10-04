@@ -1,41 +1,28 @@
-import React, { useState, useEffect } from 'react';
-
+import React, { useState, useEffect, useContext } from 'react';
+import { context } from '../components/context';
+import { useHistory } from 'react-router-dom';
 import CreateListing from '../components/CreateListing';
 import Listings from '../components/Listings';
 import Delete from '../components/Delete';
 import Edit from '../components/Edit';
 
 export default function SignUp() {
+	const {
+		user,
+		setUser,
+		loggedInUser,
+		setLoggedInUser,
+		token,
+		setToken
+	} = useContext(context);
+	let history = useHistory();
 	const [toggleLogin, setToggleLogin] = useState(false);
-	const [listings, setListings] = useState([]);
-	const [listing, setListing] = useState({});
-	const [token, setToken] = useState('');
-	const [user, setUser] = useState({
-		firstName: '',
-		lastName: '',
-		email: '',
-		password: ''
-	});
-
-	const [loggedInUser, setLoggedInUser] = useState('');
 
 	useEffect(() => {
 		if (window.localStorage.getItem('token')) {
 			setToken(window.localStorage.getItem('token'));
 			setLoggedInUser(window.localStorage.getItem('loggedInUser'));
 		}
-	}, []);
-
-	useEffect(() => {
-		(async () => {
-			try {
-				const response = await fetch('/api/registries');
-				const data = await response.json();
-				setListings(data);
-			} catch (error) {
-				console.error(error);
-			}
-		})();
 	}, []);
 
 	const handleChange = e => {
@@ -54,9 +41,10 @@ export default function SignUp() {
 			const data = await response.json();
 			console.log(data);
 			setToken(data.token);
-			setLoggedInUser(data.user.email);
+			setLoggedInUser(data.user.firstName);
 			window.localStorage.setItem('token', data.token);
-			window.localStorage.setItem('loggedInUser', data.user.email);
+			window.localStorage.setItem('loggedInUser', data.user.firstName);
+			history.push('/');
 			//for the local storage so they don't have to log in every time it refreshes
 		} catch (error) {
 			console.error(error);
@@ -75,9 +63,9 @@ export default function SignUp() {
 			});
 			const data = await response.json();
 			setToken(data.token);
-			setLoggedInUser(data.user.email);
+			setLoggedInUser(data.user.firstName);
 			window.localStorage.setItem('token', data.token);
-			window.localStorage.setItem('loggedInUser', data.user.email);
+			window.localStorage.setItem('loggedInUser', data.user.firstName);
 		} catch (error) {
 			console.error(error);
 		}
@@ -208,22 +196,6 @@ export default function SignUp() {
 					? "Don't have an account? Register."
 					: 'Already have an account? Login.'}
 			</button>
-
-			<div>
-				{token ? (
-					<>
-						<CreateListing listings={listings} setListings={setListings} />
-						<Listings
-							listings={listings}
-							setListing={setListing}
-							token={token}
-							loggedInUser={loggedInUser}
-						/>
-					</>
-				) : (
-					''
-				)}
-			</div>
 		</div>
 	);
 }

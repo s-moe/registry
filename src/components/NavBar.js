@@ -69,7 +69,7 @@ const NavBar = props => {
 								<NavLink
 									key="SignUp"
 									to="/signup"
-									className="nav-link nav-item"
+									className="nav-link nav-item signup-link"
 									exact
 									activeClassName="activeLink"
 								>
@@ -78,7 +78,7 @@ const NavBar = props => {
 								<NavLink
 									key="Login"
 									to="/login"
-									className="nav-link nav-item"
+									className="nav-link nav-item login-link"
 									exact
 									activeClassName="activeLink"
 								>

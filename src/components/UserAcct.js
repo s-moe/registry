@@ -1,24 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import {context} from './context'
+import CreateListing from './CreateListing';
+import Listings from './Listings';
+import Delete from './Delete';
+import Edit from './Edit';
 
-import CreateListing from '../components/CreateListing';
-import Listings from '../components/Listings';
-import Delete from '../components/Delete';
-import Edit from '../components/Edit';
-import Login from '../components/Login';
-import SignUp from '../components/SignUp';
 
 export default function UserAcct() {
+	const {
+		user,
+		setUser,
+		token,
+		setToken,
+		loggedInUser,
+		setLoggedInUser
+	} = useContext(context);
 	const [listings, setListings] = useState({}) //do I need anything else here? the img, title, description, etc.?
-	const [token, setToken] = useState('');
-	const [user, setUser] = useState({
-		firstName: '',
-		lastName: '',
-		email: '',
-		password: ''
-	});
-
-	const [loggedInUser, setLoggedInUser] = useState('');
-
 	const [toggle, setToggle] = useState(true);
 
 useEffect(() => {
