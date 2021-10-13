@@ -10,6 +10,7 @@ import Login from '../pages/Login';
 import About from '../pages/About';
 import HowItWorks from '../pages/HowItWorks';
 import Search from '../pages/Search';
+import UserAcct from '../components/UserAcct';
 
 const AppRouter = () => {
 	const [user, setUser] = useState({
@@ -36,7 +37,12 @@ const AppRouter = () => {
 			>
 				<NavBar
 					routes={routes.filter(
-						item => !(item.key === 'About' || item.key === 'Contact')
+						item =>
+							!(
+								item.key === 'About' ||
+								item.key === 'Contact' ||
+								item.key === 'UserAcct'
+							)
 					)}
 				/>
 				<div className="component-container">
@@ -59,11 +65,19 @@ const AppRouter = () => {
 						<Route exact path="/search">
 							<Search />
 						</Route>
+						<Route exact path="/useracct">
+							<UserAcct />
+						</Route>
 					</Switch>
 				</div>
 				<Footer
 					routes={routes.filter(
-						item => !(item.key === 'Login' || item.key === 'SignUp')
+						item =>
+							!(
+								item.key === 'Login' ||
+								item.key === 'SignUp' ||
+								item.key === 'UserAcct'
+							)
 					)}
 				/>
 			</context.Provider>

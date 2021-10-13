@@ -1,10 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { context } from '../components/context';
 import { useHistory } from 'react-router-dom';
-import CreateListing from '../components/CreateListing';
-import Listings from '../components/Listings';
-import Delete from '../components/Delete';
-import Edit from '../components/Edit';
 
 export default function SignUp() {
 	const {
@@ -44,7 +40,7 @@ export default function SignUp() {
 			setLoggedInUser(data.user.firstName);
 			window.localStorage.setItem('token', data.token);
 			window.localStorage.setItem('loggedInUser', data.user.firstName);
-			history.push('/');
+			history.push('/useracct');
 			//for the local storage so they don't have to log in every time it refreshes
 		} catch (error) {
 			console.error(error);
@@ -66,6 +62,7 @@ export default function SignUp() {
 			setLoggedInUser(data.user.firstName);
 			window.localStorage.setItem('token', data.token);
 			window.localStorage.setItem('loggedInUser', data.user.firstName);
+			history.push('/useracct');
 		} catch (error) {
 			console.error(error);
 		}

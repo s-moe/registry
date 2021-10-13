@@ -61,8 +61,18 @@ const NavBar = props => {
 					<div>
 						{token ? (
 							<>
-								<p>{loggedInUser}</p>
-								<button onClick={logout}>Log out</button>
+								<NavLink
+									key="UserAcct"
+									to="/useracct"
+									className="nav-link nav-item signup-link"
+									exact
+									activeClassName="activeLink"
+								>
+									{loggedInUser}
+								</NavLink>{' '}
+								<button onClick={logout} className="logout-btn">
+									Log out
+								</button>
 							</>
 						) : (
 							<>

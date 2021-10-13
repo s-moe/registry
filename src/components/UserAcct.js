@@ -1,12 +1,7 @@
-import React, { useState, useEffect, useContext } from 'react';
-import {context} from './context'
-import CreateListing from './CreateListing';
-import Listings from './Listings';
-import Delete from './Delete';
-import Edit from './Edit';
+import React, { useState, useEffect, useContext, useRef } from 'react';
+import { context } from './context';
 
-
-export default function UserAcct() {
+export default function UserAcct(props) {
 	const {
 		user,
 		setUser,
@@ -15,78 +10,122 @@ export default function UserAcct() {
 		loggedInUser,
 		setLoggedInUser
 	} = useContext(context);
-	const [listings, setListings] = useState({}) //do I need anything else here? the img, title, description, etc.?
-	const [toggle, setToggle] = useState(true);
 
-useEffect(() => {
-	(async () => {
+	const firstNameInput = useRef(null);
+	const lastNameInput = useRef(null);
+	const emailInput = useRef(null);
+	const passwordInput = useRef(null);
+
+	const handleUpdate = async event => {
+		event.preventDefault();
 		try {
-			const response = await fetch('/api/registries');
+			const response = await fetch(`/api/user/${props.match.params.id}`, {
+				method: 'PUT',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify({
+					firstName: firstNameInput.current.value,
+					lastName: lastNameInput.current.value,
+					email: emailInput.current.value,
+					password: passwordInput.current.value
+				})
+			});
 			const data = await response.json();
-			setListings(data);
+			setUser(data);
+			// firstName = '';
+			// lastName = '';
+			// console.log(enteredLink);
 		} catch (error) {
 			console.error(error);
 		}
-	})();
-}, [listings]);
+	};
 
+	//useEffect for when the user data is updated
 
-
-
-//useEffect for when the user data is updated
-
+	useEffect(() => {
+		(async () => {
+			try {
+				const response = await fetch(`/api/user/${props.match.params.id}`);
+				const data = await response.json();
+				setUser(data);
+			} catch (error) {
+				console.error(error);
+			}
+		})();
+	}, []);
 
 	return (
-		<div className="UserAcctPage">
-			//View Account details in a div
-
-			//THEY SHOULDN'T HAVE THE BUTTONS FOR SIGNUP OR LOGIN ONCE THEY ARE HERE.
-			<SignUp token={token} setToken={setToken} user={user}
-			setUser={setUser} loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser}
-			toggle={toggle} setToggle={setToggle}/>
-
-
-			<Login token={token} setToken={setToken} user={user}
-			setUser={setUser} loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser}
-			toggle={toggle} setToggle={setToggle}/>
-
-			<button
-				className="btn btn-primary"
-				type="button"
-				data-toggle="collapse"
-				data-target="#collapseExample"
-				aria-expanded="false"
-				aria-controls="collapseExample"
-			>
-				Account
-			</button> //I WANT THEM TO BE ABLE TO VIEW THEIR ACCT DETAILS FROM SIGNUP AND EDIT THOSE DETAILS (NOT THE UNIQUE DETAIL OF COURSE)
-			<div className="collapse" id="collapseExample">
+		<div className="UserAcct container">
+			<div className="jumbotron">
 				<>
-				//if no user data don't show, but once we have it, show it & edit and update
-				//objects.keys... from booksmarks Show.js
+					<p>{user.firstName}</p>
+					<p>{user.lastName}</p>
+					<p>{user.email}</p>
+					<p>{user.password}</p>
 				</>
+
+				<button
+					className="btn btn-primary"
+					type="button"
+					data-toggle="collapse"
+					data-target="#collapseExample"
+					aria-expanded="false"
+					aria-controls="collapseExample"
+				>
+					Update Info
+				</button>
+				<div className="collapse" id="collapseExample">
+					<form
+						style={{ display: 'flex', flexDirection: 'column' }}
+						onSubmit={handleUpdate}
+					>
+						<label>
+							{' '}
+							First Name:{' '}
+							<input
+								type="text"
+								ref={firstNameInput}
+								defaultValue={user.firstName}
+							/>
+						</label>
+						<label>
+							{' '}
+							Last Name:{' '}
+							<input
+								type="text"
+								ref={lastNameInput}
+								defaultValue={user.lastName}
+							/>
+						</label>
+						<label>
+							{' '}
+							Email:{' '}
+							<input type="text" ref={emailInput} defaultValue={user.email} />
+						</label>
+						<label>
+							{' '}
+							Password:{' '}
+							<input
+								type="text"
+								ref={passwordInput}
+								defaultValue={user.password}
+							/>
+						</label>
+						<button
+							type="submit"
+							value="Submit Update"
+							className="btn btn-success"
+							data-target="#collapseExample"
+							data-toggle="collapse"
+							aria-expanded="false"
+							aria-controls="collapseExample"
+						>
+							Save
+						</button>
+					</form>
+				</div>
 			</div>
-			//update account details in a form
-      <button
-      className="btn btn-primary"
-      type="button"
-      data-toggle="collapse"
-      data-target="#collapseExample"
-      aria-expanded="false"
-      aria-controls="collapseExample"
-      >
-      Edit Account
-      </button>
-
-      //CREATE A LISTING
-      <CreateListing listings={listings} setListings={setListings}/>
-
-
-      //view all listings - CAN I MAKE A SEPARATE COMPONENT SO THAT ANOTHER USER CAN VIEW, BUT NOT EDIT OR DELETE?
-      <Listings listings={listings}>
-				<Edit listing={listing} setListing={setListing}/> //do I need to pass this to them?
-				<Delete listing={listing}/>
-			</Listings> //can I add the delete and edit inside listings? this way I don't have to put them inside the Listings component itself?
 		</div>
 	);
 }

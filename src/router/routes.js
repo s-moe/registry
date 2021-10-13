@@ -6,6 +6,7 @@ import Contact from '../pages/Contact';
 import About from '../pages/About';
 import HowItWorks from '../pages/HowItWorks';
 import Search from '../pages/Search';
+import UserAcct from '../components/UserAcct';
 
 const routes = [
 	{
@@ -43,6 +44,11 @@ const routes = [
 		Component: Search,
 		key: 'Search',
 		path: '/search'
+	},
+	{
+		Component: UserAcct,
+		key: 'UserAcct',
+		path: '/useracct'
 	}
 ];
 
